@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.List;
 
@@ -19,6 +18,7 @@ public class ProductDataLoader {
 
     @EventListener(ApplicationContextEvent.class)
     public void loadProductTestData(){
+        productRepository.deleteAll();
         var products = List.of(
                 Product.of("123",340.5),
                 Product.of("321",400.0)

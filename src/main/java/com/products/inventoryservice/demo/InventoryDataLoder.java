@@ -18,6 +18,7 @@ public class InventoryDataLoder {
 
     @EventListener(ApplicationContextEvent.class)
     public void loadInventoryTestData(){
+        inventoryRepository.deleteAll();
         inventoryRepository.saveAll(
                 List.of(Inventory.of("123", 20),
                         Inventory.of("321", 50))
